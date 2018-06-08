@@ -23,7 +23,7 @@ $ docker container run -d -p 8080:8080 -p 50000:50000 -v `pwd`/jenkins:/var/jenk
 ````
 dockerBuildAndPublish {
     ...
-    registryCredentials('5ce9d9bd-c50f-4f9f-91d6-185c5d1cae6f')
+    registryCredentials('d8ffb529-4cde-48c8-b14e-6db3f217306e')
     ...         
 }
 ````
@@ -31,4 +31,4 @@ dockerBuildAndPublish {
 - Créer un job "Job 1" en ajoutant le lien suivant dans `https://github.com/dphengsiaroun/devops-partie-2.git` dans la partie Gestion de code source > sélectionner git puis collez le lien ci-dessus.
 - Plus bas, ajoutez un build Process Job DSL > sélectionner Look on File System et dans DSL Scripts ajouter `*.groovy` puis sauver.
 - Lancer un build qui sera en échec puis rendez-vous dans Manage Jenkins > Cliquez dans In-process Script Approval > cliquez sur Approve
-- Relancer le build.
+- Relancer le build du Job 1.
