@@ -16,7 +16,7 @@ job('samplephpv1') {
     steps {
         dockerBuildAndPublish {
             repositoryName('dphengsiaroun/devops01')
-            registryCredentials('680c118c-97f5-4cc6-a7b1-3dca216ae72a')
+            registryCredentials('5ce9d9bd-c50f-4f9f-91d6-185c5d1cae6f')
             buildContext('nginx-php-fpm')
             forcePull(true)
             createFingerprints(false)
@@ -43,7 +43,7 @@ job('samplephpv2') {
     steps {
         dockerBuildAndPublish {
             repositoryName('dphengsiaroun/devops02')
-            registryCredentials('680c118c-97f5-4cc6-a7b1-3dca216ae72a')
+            registryCredentials('5ce9d9bd-c50f-4f9f-91d6-185c5d1cae6f')
             buildContext('nginx-php-fpm')
             forcePull(true)
             createFingerprints(false)
@@ -71,7 +71,7 @@ job('samplephpv3') {
     steps {
         dockerBuildAndPublish {
             repositoryName('dphengsiaroun/devops03')
-            registryCredentials('680c118c-97f5-4cc6-a7b1-3dca216ae72a')
+            registryCredentials('5ce9d9bd-c50f-4f9f-91d6-185c5d1cae6f')
             buildContext('nginx-php-fpm')
             forcePull(true)
             createFingerprints(false)
