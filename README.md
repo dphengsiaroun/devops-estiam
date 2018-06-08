@@ -4,24 +4,27 @@ Ce tutoriel a pour but de faire une intégration de Jenkins avec Github.
 
 # Get started
 
-1. Installer Jenkins (https://jenkins.io/download/)
-
-Créer un dossier Jenkins
+Cloner le projet suivant :
 ````
-$ mkdir Jenkins
+git clone https://github.com/dphengsiaroun/devops-partie-2.git
+cd devops-partie-2
 ````
 
 Démarrer docker et lancer cette commande pour démarrer un docker Jenkins 
 ```
-$ cd Jenkins
-$ docker container run --rm --name jenkins -p 8080:8080 --volume `pwd`/jenkins:/var/jenkins_home jenkins/jenkins:lts
+$ docker container run -d -p 8080:8080 -p 50000:50000 -v `pwd`/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock:rw --restart=always --name jenkins --privileged=true overpower/jenkins
 ```
 
-Allez sur l'interface Jenkins (http://localhost:8080) et suivez les étapes de l'installation de Jenkins.
+- Allez sur l'interface Jenkins (http://localhost:8080) et suivez les étapes de l'installation de Jenkins, choisissez les installations suggérées puis patientez.
+- Allez dans Manage Jenkins > Manage plugins puis dans l'onglet `Available` puis recherchez JobDSL et CloudBees Docker build and publish puis installez-les.
 
+- Générer des credentials avec vos identifiants docker hub
+- Modifier le fichier devops.groovy avec les crédentials que vous venez de générer.
+````
+dockerBuildAndPublish {
+    ...
+    registryCredentials('5ce9d9bd-c50f-4f9f-91d6-185c5d1cae6f')
+    ...         
+}
+````
 
-2. Installer Node (>8.1.0) (https://nodejs.org/en/).
-3. Installer Slack (https://slack.com/intl/fr-fr/downloads/osx)
-4. Créer un compte sur Github
-5. Lien du projet à intégrer sur Jenkins (https://github.com/dphengsiaroun/jenkins-github-nodejs.git/)
-6. Lien du tuto à suivre pour l'intégration (https://lethalbrains.com/integrating-jenkins-with-github-node-js-and-slack-e8fc4d2271b5)
